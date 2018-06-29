@@ -1,5 +1,6 @@
 package com.wael.mydiary;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -20,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //Toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
+        //Navigation drawer
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -59,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_search:
                 Log.i(this.getClass().getName(), "action_search opened");
-            }
+                return true;
+
+            case R.id.action_add:
+                startActivity(new Intent(MainActivity.this, EntityEditionActivity.class));
+                return true;
+        }
             return super.onOptionsItemSelected(item);
         }
     }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".EntityEditionActivity">
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_entry_edition"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:title=" " />
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:fillViewport="true"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_entry_edition">
+
+            <ImageView
+                android:id="@+id/image_entity_edition"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:contentDescription="@string/msg_image_entry_edition_description"
+                app:srcCompat="@color/colorPrimary"
+                 />
+
+            <EditText
+                android:id="@+id/edit_title_entry_edition"
+                android:layout_width="240dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_bold"
+                android:maxLength="25"
+                android:hint="@string/title_hint_entry_edition"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="?attr/colorBackgroundFloating"
+                android:textSize="36sp"
+                app:layout_constraintTop_toTopOf="@+id/image_entity_edition"/>
+
+            <TextView
+            android:id="@+id/edit_date_entry_edition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            app:layout_constraintTop_toBottomOf="@+id/image_entity_edition" />
+
+            <EditText
+                android:id="@+id/text_entry_edition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_slabd"
+                android:lineSpacingExtra="2sp"
+                android:padding="24dp"
+                android:singleLine="false"
+                android:hint="@string/msg_text_hint_entry_edition"
+                android:textAlignment="textStart"
+                android:textAppearance="@android:style/TextAppearance.Material.Body1"
+                android:textDirection="firstStrong"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/image_entity_edition" />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
+</LinearLayout>
