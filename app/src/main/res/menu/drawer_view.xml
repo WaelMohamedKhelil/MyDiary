@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <group android:checkableBehavior="single"
+        android:id="@+id/menu_top">
+        <item
+            android:id="@+id/nav_stories"
+            android:icon="@drawable/ic_book_black_24dp"
+            android:title="@string/stories" />
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="@string/pinned" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/menu_bottom">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_help"
+            android:title="@string/about_us" />
+        <item
+            android:id="@+id/Log_out"
+            android:icon="@drawable/ic_exit_to_app"
+            android:title="@string/Log_out" />
+    </group>
+</menu>
