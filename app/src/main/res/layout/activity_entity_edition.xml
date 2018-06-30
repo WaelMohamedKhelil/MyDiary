@@ -28,7 +28,7 @@
             app:layout_constraintTop_toBottomOf="@+id/toolbar_entry_edition">
 
             <ImageView
-                android:id="@+id/image_entity_edition"
+                android:id="@+id/image_entry_edition"
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
                 android:contentDescription="@string/msg_image_entry_edition_description"
@@ -46,7 +46,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Title"
                 android:textColor="?attr/colorBackgroundFloating"
                 android:textSize="36sp"
-                app:layout_constraintTop_toTopOf="@+id/image_entity_edition"/>
+                app:layout_constraintTop_toTopOf="@+id/image_entry_edition"/>
 
             <TextView
             android:id="@+id/edit_date_entry_edition"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
-            app:layout_constraintTop_toBottomOf="@+id/image_entity_edition" />
+            app:layout_constraintTop_toBottomOf="@+id/image_entry_edition" />
 
             <EditText
                 android:id="@+id/text_entry_edition"
@@ -69,7 +69,7 @@
                 android:textAppearance="@android:style/TextAppearance.Material.Body1"
                 android:textDirection="firstStrong"
                 android:textSize="18sp"
-                app:layout_constraintTop_toBottomOf="@+id/image_entity_edition" />
+                app:layout_constraintTop_toBottomOf="@+id/image_entry_edition" />
         </android.support.constraint.ConstraintLayout>
 
 
