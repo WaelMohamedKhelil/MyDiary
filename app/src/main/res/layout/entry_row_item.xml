@@ -6,7 +6,8 @@
     android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:id="@+id/layout_row">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"
@@ -14,9 +15,9 @@
 
         <ImageView
             android:id="@+id/image_entry_item"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:contentDescription="@string/msg_image_entry_edition_description"
+            android:layout_width = "100dp"
+            android:layout_height = "100dp"
+            android:contentDescription = "@string/msg_image_entry_edition_description"
             app:srcCompat="@color/colorPrimary"/>
 
         <TextView
@@ -73,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:maxLength="30"
             android:text="@string/text_entry_item"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

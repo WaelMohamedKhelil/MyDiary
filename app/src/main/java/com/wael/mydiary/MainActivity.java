@@ -1,12 +1,12 @@
 package com.wael.mydiary;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,27 +14,31 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import com.wael.mydiary.Database.AppDatabase;
 
+public class MainActivity extends AppCompatActivity implements EntryAdapter.ListItemClickListener{
+    private static final String TAG = "MainActivity";
     private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
+    private EntryAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
     private DrawerLayout mDrawerLayout;
+    private AppDatabase mDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //RecyclerView
+        mDb = AppDatabase.getsInstance(getApplicationContext());
+
+//        RecyclerView
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view_entries);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        //mAdapter = new EntryAdapter(myDataset);
+        mAdapter = new EntryAdapter(mDb.entryDao().loadAllEntries(), this, this);
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -70,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        mAdapter.setEntries(mDb.entryDao().loadAllEntries());
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -86,4 +96,12 @@ public class MainActivity extends AppCompatActivity {
         }
             return super.onOptionsItemSelected(item);
         }
+
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+        Log.d(TAG, "onListItemClick: Index item clicked  = " + clickedItemIndex);
+        Intent intent = new Intent(MainActivity.this, EntityEditionActivity.class);
+        intent.putExtra(EntityEditionActivity.EXTRA_ENTRY_ID, clickedItemIndex);
+        startActivity(intent);
     }
+}

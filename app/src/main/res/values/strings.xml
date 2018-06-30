@@ -18,12 +18,12 @@
 
     <!--Entry edition-->
     <string name="msg_image_entry_edition_description">This image contains the entry picture</string>
-    <string name="title_hint_entry_edition">thing and things</string>
-    <string name="msg_text_hint_entry_edition">Put your story here</string>
+    <string name="title_hint_entry_edition">My day</string>
+    <string name="msg_text_hint_entry_edition">My story</string>
 
     <!--Entry item-->
-    <string name="title_entry_item">Today was a good day</string>
-    <string name="text_entry_item">why Today was a good day</string>
+    <string name="title_entry_item">My day</string>
+    <string name="text_entry_item">How was my day?</string>
 
     <!-- Strings related to Settings -->
 
