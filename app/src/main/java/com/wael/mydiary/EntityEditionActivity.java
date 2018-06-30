@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.wael.mydiary.Database.AppDatabase;
 import com.wael.mydiary.Database.Entry;
 
@@ -29,6 +30,7 @@ public class EntityEditionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_entity_edition);
         mDb = AppDatabase.getsInstance(getApplicationContext());
         //Toolbar
