@@ -12,11 +12,10 @@ import java.util.List;
 
 @Dao
 public interface EntryDao {
-    /**
-     * TODO : ORDER BY date WHERE user = ""
-     */
 
-    @Query("SELECT * FROM entry ORDER BY created_at DESC")
+    @Query("SELECT * FROM entry WHERE user_id = :userId ORDER BY created_at DESC ")
+    List<Entry> loadAllEntriesByClient(String userId);
+    @Query("SELECT * FROM entry ORDER BY created_at DESC ")
     List<Entry> loadAllEntries();
 
     @Insert
@@ -28,6 +27,6 @@ public interface EntryDao {
     @Delete
     void deleteEntry(Entry entry);
 
-    @Query("SELECT * FROM entry WHERE id = :id")
-    Entry loadEntryById(int id);
+    @Query("SELECT * FROM entry WHERE user_id = :userId AND id = :id ")
+    Entry loadEntryById(String userId, int id);
 }

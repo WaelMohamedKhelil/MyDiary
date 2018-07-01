@@ -7,7 +7,7 @@ import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 import android.util.Log;
 
-@Database(entities = {Entry.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, Entry.class}, version = 1, exportSchema = false)
 @TypeConverters(DataConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
     private static final String TAG = "AppDatabase";
@@ -29,6 +29,7 @@ public abstract class AppDatabase extends RoomDatabase {
         return sInstance;
     }
     public abstract EntryDao entryDao();
+    public abstract UserDao userDao();
 
 
 }

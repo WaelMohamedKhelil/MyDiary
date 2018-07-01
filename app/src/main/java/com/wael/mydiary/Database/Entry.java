@@ -2,13 +2,18 @@ package com.wael.mydiary.Database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
-import android.util.Log;
 
 import java.util.Date;
 
+import static android.arch.persistence.room.ForeignKey.CASCADE;
 
-@Entity(tableName="entry")
+
+@Entity(tableName="entry", foreignKeys = @ForeignKey(entity = User.class,
+        parentColumns = "id",
+        childColumns = "user_id",
+        onDelete = CASCADE ))
 public class Entry {
     private static final String TAG = "Entry";
     @PrimaryKey(autoGenerate = true)
@@ -17,15 +22,15 @@ public class Entry {
     private String text;
     @ColumnInfo(name = "created_at")
     private Date createdAt;
+    @ColumnInfo(name = "user_id")
+    public String userId;
 
-    public Entry(int id, String title, String text) {
+    public Entry(int id, String title, String text, String userId) {
         this.id = id;
         this.text = text;
         this.title = title;
         createdAt = new Date();
-        Log.d(TAG, "Entry: new entry created id = " + this.getId() +
-                " title = " + this.getTitle() + " text = " + this.getText() +
-                " Date = " + this.createdAt);
+        this.userId = userId;
     }
 
     public int getId() {
@@ -60,4 +65,11 @@ public class Entry {
         return createdAt;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 }
